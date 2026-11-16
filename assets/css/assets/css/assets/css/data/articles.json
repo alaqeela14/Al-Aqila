@@ -1,0 +1,84 @@
+{
+  "categories": [
+    { "id": "all", "label": { "ar": "الكل", "en": "All", "fa": "همه" } },
+    { "id": "aqeedah", "label": { "ar": "عقائدي", "en": "Aqeedah", "fa": "اعتقادی" } },
+    { "id": "fiqh", "label": { "ar": "فقهي", "en": "Fiqh", "fa": "فقهی" } },
+    { "id": "history", "label": { "ar": "تاريخي", "en": "Historical", "fa": "تاریخی" } },
+    { "id": "social", "label": { "ar": "اجتماعي", "en": "Social", "fa": "اجتماعی" } },
+    { "id": "ethical", "label": { "ar": "أخلاقي", "en": "Ethical", "fa": "اخلاقی" } }
+  ],
+  "articles": [
+    {
+      "id": "art-001",
+      "title": {
+        "ar": "منهجية البحث في علوم أهل البيت عليهم السلام",
+        "en": "Research Methodology in Ahl al-Bayt Sciences",
+        "fa": "روش‌شناسی پژوهش در علوم اهل بیت"
+      },
+      "author": "الشيخ محمد العقيلي",
+      "category": "aqeedah",
+      "date": "2025-03-15",
+      "summary": {
+        "ar": "دراسة منهجية تتناول أصول البحث العلمي في علوم أهل البيت عليهم السلام، مع بيان الضوابط والأدوات المعاصرة.",
+        "en": "A methodological study of research principles in Ahl al-Bayt sciences.",
+        "fa": "مطالعه روش‌شناختی اصول پژوهش در علوم اهل بیت."
+      },
+      "content": {
+        "ar": "<p>هذا نص تجريبي لمحتوى البحث. ضع هنا المحتوى الكامل...</p>",
+        "en": "<p>This is a placeholder for the full article content...</p>",
+        "fa": "<p>این یک متن آزمایشی است...</p>"
+      },
+      "tags": ["منهجية", "بحث علمي"],
+      "pdfUrl": "",
+      "published": true
+    },
+    {
+      "id": "art-002",
+      "title": {
+        "ar": "دور الأسرة في بناء المجتمع الإسلامي",
+        "en": "The Role of Family in Building Islamic Society",
+        "fa": "نقش خانواده در ساخت جامعه اسلامی"
+      },
+      "author": "السيد علي الحسيني",
+      "category": "social",
+      "date": "2024-11-20",
+      "summary": {
+        "ar": "بحث اجتماعي يتناول أهمية الأسرة كوحدة أساسية في بناء المجتمع، مع التركيز على القيم الإسلامية.",
+        "en": "A social research on the importance of family as a foundational unit in building society.",
+        "fa": "پژوهشی اجتماعی درباره اهمیت خانواده."
+      },
+      "content": {
+        "ar": "<p>المحتوى الكامل هنا...</p>",
+        "en": "<p>Full content here...</p>",
+        "fa": "<p>محتوای کامل...</p>"
+      },
+      "tags": ["أسرة", "مجتمع"],
+      "pdfUrl": "",
+      "published": true
+    },
+    {
+      "id": "art-003",
+      "title": {
+        "ar": "أحكام الزكاة في الفقه الإسلامي",
+        "en": "Zakat Rulings in Islamic Jurisprudence",
+        "fa": "احکام زکات در فقه اسلامی"
+      },
+      "author": "الشيخ عبد الله الشيرازي",
+      "category": "fiqh",
+      "date": "2024-08-10",
+      "summary": {
+        "ar": "دراسة فقهية تفصيلية لأحكام الزكاة وشروطها ومصارفها.",
+        "en": "A detailed fiqh study of Zakat rulings, conditions, and recipients.",
+        "fa": "بررسی فقهی تفصیلی احکام زکات."
+      },
+      "content": {
+        "ar": "<p>المحتوى الكامل هنا...</p>",
+        "en": "<p>Full content here...</p>",
+        "fa": "<p>محتوای کامل...</p>"
+      },
+      "tags": ["زكاة", "فقه"],
+      "pdfUrl": "",
+      "published": true
+    }
+  ]
+}
