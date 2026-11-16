@@ -1,0 +1,27 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (إن استخدمت أدوات لاحقاً)
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log
+
+# Temporary
+*.tmp
+.cache/
+
+# Secrets (لا تضع أرقام حسابات حقيقية هنا)
+.env
+.env.local
+secrets.json
