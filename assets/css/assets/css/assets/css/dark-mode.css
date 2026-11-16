@@ -1,0 +1,112 @@
+/* ============================================
+   dark-mode.css — الوضع الليلي
+   ============================================ */
+
+html.dark-mode {
+  --cream: #151a17;
+  --paper: #1b211e;
+  --bg: #101512;
+  --text: #edf2ed;
+  --muted: #aab6ae;
+  --line: #303a34;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.34);
+}
+
+html.dark-mode body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+html.dark-mode .section-title,
+html.dark-mode .tile-body h4,
+html.dark-mode .choice h3,
+html.dark-mode .item-btn,
+html.dark-mode .surah-btn,
+html.dark-mode .ayah-text,
+html.dark-mode .details-dialog h2,
+html.dark-mode .field label,
+html.dark-mode .contact-row strong,
+html.dark-mode .research-card h3,
+html.dark-mode .donation-cat h4,
+html.dark-mode .bank-account-info strong {
+  color: var(--text);
+}
+
+html.dark-mode .card,
+html.dark-mode .ayah,
+html.dark-mode .search-dialog,
+html.dark-mode .details-dialog,
+html.dark-mode .research-card,
+html.dark-mode .donation-cat,
+html.dark-mode .transparency-card {
+  background: var(--paper);
+  border-color: var(--line);
+}
+
+html.dark-mode .highlight {
+  background: linear-gradient(180deg, #20261f, #191e1b);
+  border-color: #454331;
+}
+
+html.dark-mode .choice,
+html.dark-mode .tile,
+html.dark-mode .bank-account {
+  background: linear-gradient(145deg, #202621, #171c19);
+  border-color: var(--line);
+}
+
+html.dark-mode .item-btn,
+html.dark-mode .surah-btn,
+html.dark-mode .back-btn,
+html.dark-mode .contact-row {
+  background: #1a201d;
+  border-color: var(--line);
+  color: var(--text);
+}
+
+html.dark-mode .field input,
+html.dark-mode .field textarea,
+html.dark-mode .field select,
+html.dark-mode .search-head input {
+  background: #151a17;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+html.dark-mode .quote-card {
+  background: linear-gradient(135deg, #20231c, #1a211d);
+  border-color: #4b4427;
+}
+html.dark-mode .quote-card blockquote {
+  color: var(--text);
+}
+
+html.dark-mode .notice {
+  background: #2a271b;
+  border-color: #5a4d27;
+  color: #e8d78e;
+}
+
+html.dark-mode .copy-btn {
+  background: #1a201d;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+html.dark-mode .research-filter {
+  background: #1a201d;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+html.dark-mode .search-close {
+  background: #1a201d;
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+/* أيقونة القمر تدور في الوضع الليلي */
+html.dark-mode .theme-toggle i {
+  transform: rotate(-20deg);
+}
