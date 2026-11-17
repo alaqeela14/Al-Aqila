@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "target": "ESNext",
     "module": "ESNext",
-    "checkJs": true,
+    "checkJs": false,
     "strict": true,
-    "types": ["node"]
+    "lib": ["DOM", "DOM.Iterable", "ESNext"]
   },
-  "include": ["src/**/*.js"]
+  "include": ["app.js"],
+  "exclude": ["node_modules"]
 }
