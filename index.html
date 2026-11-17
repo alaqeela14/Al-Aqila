@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#143a29">
+  <meta name="color-scheme" content="light">
+  <meta property="og:title" content="مؤسسة العقيلة الثقافية الخيرية">
+  <meta property="og:description" content="منصة ثقافية وخيرية لنشر المعرفة وخدمة المجتمع.">
+  <meta property="og:type" content="website">
+  <meta name="description" content="مؤسسة العقيلة الثقافية الخيرية — منصة ثقافية وخيرية لنشر علوم أهل البيت عليهم السلام وخدمة المجتمع.">
+  <meta name="robots" content="index, follow">
+  <title>مؤسسة العقيلة الثقافية الخيرية</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">الانتقال إلى المحتوى الرئيسي</a>
+
+  <!-- الشريط العلوي -->
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <span class="utility-note">منصة ثقافية وخيرية لخدمة المجتمع</span>
+      </div>
+      <div class="utility-right">
+        <span class="utility-note" id="miniDate">—</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- الهيدر -->
+  <header class="site-header">
+    <div class="header-main">
+      <div class="container header-grid">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="brand-text">
+            <h1>مؤسسة العقيلة</h1>
+            <p>الثقافية الخيرية</p>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <div class="header-center-note">علم، ثقافة، خدمة، وبناء إنساني</div>
+        </div>
+
+        <div class="header-actions">
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="تفعيل الوضع الليلي" aria-pressed="false" title="الوضع الليلي"><i class="fa-solid fa-moon"></i></button>
+          <button type="button" class="icon-btn" id="searchOpen" aria-label="بحث"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button type="button" class="icon-btn" id="homeBtn" aria-label="الرئيسية"><i class="fa-solid fa-house"></i></button>
+          <button type="button" class="icon-btn menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mainNav"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+      <div class="container header-date">
+        <div class="date-row" aria-label="التاريخ والوقت">
+          <span class="clock"><i class="fa-regular fa-clock"></i><strong id="clockTime">--:--:--</strong></span>
+          <span class="dot-sep">•</span>
+          <span class="gregorian"><i class="fa-regular fa-calendar"></i><span id="gregorianDate">...</span></span>
+          <span class="dot-sep">•</span>
+          <span class="hijri"><i class="fa-regular fa-moon"></i><span id="hijriDate">...</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-wrap">
+      <div class="container">
+        <nav class="main-nav" id="mainNav" aria-label="التنقل الرئيسي">
+          <button class="nav-link active" type="button" data-target="page-home">الرئيسية</button>
+          <button class="nav-link" type="button" data-target="page-tafsir">تفسير القرآن الكريم</button>
+          <button class="nav-link" type="button" data-target="page-lectures">الدروس والمحاضرات</button>
+          <button class="nav-link" type="button" data-target="page-archive">الأرشيف</button>
+          <button class="nav-link" type="button" data-target="page-news">أخبار ونشاطات</button>
+          <button class="nav-link" type="button" data-target="page-books">المؤلفات</button>
+          <button class="nav-link" type="button" data-target="page-library">مكتبة آل الشيرازي</button>
+          <button class="nav-link" type="button" data-target="page-mishkat">منصة مشكاة</button>
+          <button class="nav-link" type="button" data-target="page-fatwa">استفتاء</button>
+          <button class="nav-link" type="button" data-target="page-visuals">مرئيات</button>
+          <button class="nav-link" type="button" data-target="page-wasaya">وصايا</button>
+          <button class="nav-link" type="button" data-target="page-cultural-projects">المشاريع الثقافية</button>
+          <button class="nav-link" type="button" data-target="page-charity-projects">المشاريع الخيرية</button>
+          <button class="nav-link" type="button" data-target="page-about">عن المؤسسة</button>
+          <button class="nav-link" type="button" data-target="page-contact">تواصل معنا</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- شريط الدعاء -->
+  <div class="marquee" aria-label="نص متحرك">
+    <div class="marquee-track">
+      اللهم صل على محمد وآل محمد، وعجل فرجهم — اللهم كن لوليك الحجة بن الحسن صلواتك عليه وعلى آبائه في هذه الساعة وفي كل ساعة ولياً وحافظاً وقائداً وناصراً ودليلاً وعيناً حتى تسكنه أرضك طوعاً وتمتعه فيها طويلاً
+      &nbsp;&nbsp;&nbsp;&nbsp; — &nbsp;&nbsp;&nbsp;&nbsp;
+      اللهم صل على محمد وآل محمد، وعجل فرجهم — اللهم كن لوليك الحجة بن الحسن صلواتك عليه وعلى آبائه في هذه الساعة وفي كل ساعة ولياً وحافظاً وقائداً وناصراً ودليلاً وعيناً حتى تسكنه أرضك طوعاً وتمتعه فيها طويلاً
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- الصفحة الرئيسية -->
+    <section id="page-home" class="page active">
+      <div class="container">
+        <section class="hero">
+          <div class="hero-content">
+            <div class="eyebrow"><i class="fa-solid fa-star"></i><span>مؤسسة العقيلة الثقافية الخيرية</span></div>
+            <h2>من المعرفة إلى خدمة الإنسان</h2>
+            <p>مؤسسة غير ربحية تهتم بالثقافة والمعرفة وخدمة المجتمع، وتسعى إلى نشر علوم أهل البيت عليهم السلام، وترسيخ قيم العدل والسلام واللاعنف، ودعم المبادرات الثقافية والإنسانية.</p>
+            <div class="hero-actions">
+              <button class="btn-primary" type="button" data-target="page-tafsir"><i class="fa-solid fa-book-quran"></i><span>استكشف المحتوى القرآني</span></button>
+              <button class="btn-secondary" type="button" data-target="page-lectures"><i class="fa-solid fa-headphones"></i><span>الدروس والمحاضرات</span></button>
+            </div>
+            <div class="hero-proof" aria-label="مزايا المنصة">
+              <div><strong>٤</strong><span>مساحات معرفية</span></div>
+              <div><strong>١٠+</strong><span>مسارات للمحتوى</span></div>
+              <div><strong>٣</strong><span>لغات للواجهة</span></div>
+            </div>
+            <div class="contact-inline">
+              <a class="contact-chip" href="tel:+967779018414"><i class="fa-solid fa-phone"></i><span dir="ltr">+967 779 018 414</span></a>
+              <a class="contact-chip" href="mailto:alaqeelafoundation@gmail.com"><i class="fa-solid fa-envelope"></i><span>alaqeelafoundation@gmail.com</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="quote-card" aria-label="من كلام المعصوم عليه السلام">
+          <div class="quote-kicker">من كلام المعصوم عليه السلام</div>
+          <blockquote>«قِيمَةُ كُلِّ امْرِئٍ مَا يُحْسِنُهُ»</blockquote>
+          <div class="quote-source">أمير المؤمنين الإمام علي عليه السلام — نهج البلاغة، الحكمة 81</div>
+        </section>
+
+        <button class="discovery-search" type="button" id="discoverySearch">
+          <span class="discovery-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <span class="discovery-copy"><strong>ابحث بسرعة في محتوى الموقع</strong><small>الأخبار، الدروس، السلاسل، المؤلفات والموضوعات.</small></span>
+          <kbd>Ctrl K</kbd>
+        </button>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-bolt"></i><span>آخر المستجدات</span></h2>
+              <div class="section-subtitle">أبرز ما تم نشره في المنصة</div>
+            </div>
+          </div>
+          <div class="latest-box">
+            <span class="latest-badge"><i class="fa-solid fa-circle-nodes"></i><span>تحديثات المنصة</span></span>
+            <div class="latest-text" id="latestText">...</div>
+            <div class="latest-date" id="latestDate">...</div>
+            <div class="dots" id="latestDots"></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-newspaper"></i><span>أخبار المؤسسة</span></h2>
+              <div class="section-subtitle">مواد وأخبار يمكن تحديثها من مصدر واحد</div>
+            </div>
+            <button class="btn-secondary" style="background:#fff;color:var(--green-950);border:1px solid var(--line)" type="button" data-target="page-news">المزيد</button>
+          </div>
+          <div class="grid grid-3" id="newsHome"></div>
+        </section>
+
+        <section class="section">
+          <div class="grid grid-2">
+            <div class="card card-pad">
+              <div class="section-head">
+                <div>
+                  <h2 class="section-title"><i class="fa-solid fa-calendar-days"></i><span>أنشطة المؤسسة</span></h2>
+                </div>
+              </div>
+              <div id="activitiesHome"></div>
+            </div>
+            <div class="card card-pad">
+              <div class="section-head">
+                <div>
+                  <h2 class="section-title"><i class="fa-solid fa-seedling"></i><span>مشاريعنا</span></h2>
+                </div>
+              </div>
+              <div class="grid grid-2" id="projectsHome"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book-open"></i><span>مقالات وأفكار</span></h2>
+            </div>
+          </div>
+          <div class="grid grid-2" id="articlesHome"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-video"></i><span>دروس ومحاضرات</span></h2>
+            </div>
+          </div>
+          <div class="card card-pad">
+            <div class="item-list" id="lessonsPreview"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- تفسير القرآن -->
+    <section id="page-tafsir" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book-quran"></i><span>تفسير القرآن الكريم</span></h2>
+              <div class="section-subtitle">الوصول إلى السلاسل والدروس القرآنية</div>
+            </div>
+          </div>
+          <div class="choice-grid">
+            <button class="choice" type="button" data-target="page-tafsir-series">
+              <div class="choice-icon"><i class="fa-solid fa-video"></i></div>
+              <h3>سلاسل التفسير</h3>
+              <p>مرئي ومحتوى قابل للتوسع</p>
+            </button>
+            <button class="choice" type="button" data-target="page-taqreeb">
+              <div class="choice-icon"><i class="fa-solid fa-book"></i></div>
+              <h3>تقريب القرآن إلى الأذهان</h3>
+              <p>محتوى صوتي ومرئي بحسب السورة</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- سلاسل التفسير -->
+    <section id="page-tafsir-series" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-tafsir"><i class="fa-solid fa-arrow-right"></i><span>العودة لتفسير القرآن</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-layer-group"></i><span>سلاسل التفسير</span></h2>
+            </div>
+          </div>
+          <div class="notice">العناصر أدناه هي بنية جاهزة للمحتوى الحقيقي. استبدل البيانات التجريبية بروابط حلقاتك وملفاتك.</div>
+          <div class="item-list" id="tafsirSeriesList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- تقريب القرآن -->
+    <section id="page-taqreeb" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-tafsir"><i class="fa-solid fa-arrow-right"></i><span>العودة لتفسير القرآن</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book-quran"></i><span>تقريب القرآن إلى الأذهان</span></h2>
+            </div>
+          </div>
+          <div class="choice-grid">
+            <button class="choice" type="button" data-target="page-surahs" data-type="audio">
+              <div class="choice-icon"><i class="fa-solid fa-headphones"></i></div>
+              <h3>صوتي</h3>
+              <p>اختيار السورة ثم تشغيل المادة</p>
+            </button>
+            <button class="choice" type="button" data-target="page-surahs" data-type="video">
+              <div class="choice-icon"><i class="fa-solid fa-play"></i></div>
+              <h3>مرئي</h3>
+              <p>اختيار السورة ثم فتح الفيديو</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- السور -->
+    <section id="page-surahs" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-taqreeb"><i class="fa-solid fa-arrow-right"></i><span>العودة لتقريب القرآن</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-list-ol"></i><span>قائمة السور</span></h2>
+              <div class="section-subtitle" id="surahModeLabel">—</div>
+            </div>
+          </div>
+          <div id="surahGrid" class="surah-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الآيات -->
+    <section id="page-ayahs" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-surahs"><i class="fa-solid fa-arrow-right"></i><span>العودة للسور</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-verse"></i><span id="ayahPageTitle">الآيات</span></h2>
+              <div class="section-subtitle">ضع النصوص وملفات الصوت/الفيديو الحقيقية في بيانات الموقع.</div>
+            </div>
+          </div>
+          <div class="ayah-list" id="ayahsContainer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الدروس والمحاضرات -->
+    <section id="page-lectures" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-chalkboard-user"></i><span>الدروس والمحاضرات</span></h2>
+            </div>
+          </div>
+          <div class="choice-grid">
+            <button class="choice" type="button" data-target="page-lectures-list">
+              <div class="choice-icon"><i class="fa-solid fa-microphone"></i></div>
+              <h3>المحاضرات</h3>
+              <p>البحث بحسب السلسلة أو الموضوع</p>
+            </button>
+            <button class="choice" type="button" data-target="page-lessons-main">
+              <div class="choice-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h3>الدروس</h3>
+              <p>قائمة قابلة للتوسعة لأرقام الدروس</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- مواضيع المحاضرات -->
+    <section id="page-lectures-list" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-lectures"><i class="fa-solid fa-arrow-right"></i><span>العودة للدروس والمحاضرات</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-list"></i><span>مواضيع المحاضرات</span></h2>
+            </div>
+          </div>
+          <div class="item-list" id="lectureTopics"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- محاضرات الموضوع -->
+    <section id="page-lecture-items" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-lectures-list"><i class="fa-solid fa-arrow-right"></i><span>العودة للمواضيع</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-circle-play"></i><span id="lectureTopicTitle">المحاضرات</span></h2>
+            </div>
+          </div>
+          <div class="item-list" id="lectureItems"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الدروس -->
+    <section id="page-lessons-main" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-lectures"><i class="fa-solid fa-arrow-right"></i><span>العودة للدروس والمحاضرات</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book"></i><span>الدروس</span></h2>
+            </div>
+          </div>
+          <div class="item-list">
+            <button class="item-btn" type="button" data-target="page-lessons-grid"><i class="fa-solid fa-book-open"></i><span>بحوث الخارج</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- جميع الدروس -->
+    <section id="page-lessons-grid" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-lessons-main"><i class="fa-solid fa-arrow-right"></i><span>العودة للدروس</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-list-ol"></i><span>جميع الدروس (بحوث الخارج)</span></h2>
+              <div class="section-subtitle">القائمة أدناه مولدة آلياً ويمكن استبدالها ببيانات حقيقية.</div>
+            </div>
+          </div>
+          <div class="lessons-grid" id="allLessons"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الأخبار -->
+    <section id="page-news" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="grid grid-2" id="newsPage"></div>
+      </div>
+    </section>
+
+    <!-- المؤلفات -->
+    <section id="page-books" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book-open"></i><span>المؤلفات</span></h2>
+            </div>
+          </div>
+          <div class="notice">هذه الواجهة جاهزة لربط الكتب، ملفات PDF، وصف المؤلف، وروابط الشراء أو القراءة.</div>
+          <div class="grid grid-2" id="booksGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المكتبة -->
+    <section id="page-library" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-building-columns"></i><span>مكتبة آل الشيرازي</span></h2>
+            </div>
+          </div>
+          <div class="grid grid-3" id="libraryGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الأرشيف -->
+    <section id="page-archive" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-box-archive"></i><span>الأرشيف</span></h2>
+              <div class="section-subtitle">بنية مقترحة للأرشيف الرقمي</div>
+            </div>
+          </div>
+          <div class="grid grid-3" id="archiveGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- منصة مشكاة -->
+    <section id="page-mishkat" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-lightbulb"></i><span>منصة مشكاة</span></h2><div class="section-subtitle">منصة معرفية للمواد والدورات والسلاسل</div></div></div>
+          <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-book-open"></i></div><h3>المحتوى المعرفي</h3><p>مواد علمية وثقافية منظمة وقابلة للتحديث.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><h3>السلاسل والدورات</h3><p>تصنيف السلاسل والمحاضرات والدروس في مسارات واضحة.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-users"></i></div><h3>التفاعل والمتابعة</h3><p>واجهة جاهزة لإضافة التسجيلات والروابط وبيانات البرامج.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الاستفتاء -->
+    <section id="page-fatwa" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-scale-balanced"></i><span>استفتاء</span></h2><div class="section-subtitle">قسم مخصص للاستفتاءات والأسئلة الشرعية</div></div></div>
+          <div class="notice">يمكن ربط هذا القسم لاحقًا بنموذج الاستفتاء أو بمنصة الأسئلة والأجوبة التابعة للمؤسسة.</div>
+          <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-circle-question"></i></div><h3>إرسال سؤال</h3><p>نموذج جاهز لإضافة السؤال وإرساله للجهة المختصة.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-list-check"></i></div><h3>الأسئلة المنشورة</h3><p>عرض الاستفتاءات والأجوبة في تصنيف قابل للبحث.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-tags"></i></div><h3>التصنيفات</h3><p>عبادات، معاملات، أسرة، وأبواب علمية أخرى.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المرئيات -->
+    <section id="page-visuals" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-photo-film"></i><span>مرئيات</span></h2><div class="section-subtitle">المحاضرات والدروس في قسم مرئي موحّد</div></div></div>
+          <div class="choice-grid">
+            <button class="choice" type="button" data-target="page-lectures"><div class="choice-icon"><i class="fa-solid fa-microphone"></i></div><h3>المحاضرات</h3><p>البحث بحسب السلسلة أو الموضوع</p></button>
+            <button class="choice" type="button" data-target="page-lessons-main"><div class="choice-icon"><i class="fa-solid fa-graduation-cap"></i></div><h3>الدروس</h3><p>قائمة قابلة للتوسعة لأرقام الدروس</p></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الوصايا -->
+    <section id="page-wasaya" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-feather-pointed"></i><span>وصايا</span></h2><div class="section-subtitle">مختارات نافعة في تزكية النفس وبناء الإنسان</div></div></div>
+          <div class="item-list">
+            <button class="item-btn" type="button" data-demo="lesson" data-number="1"><i class="fa-solid fa-star"></i><span>الوصايا الأخلاقية</span></button>
+            <button class="item-btn" type="button" data-demo="lesson" data-number="2"><i class="fa-solid fa-heart"></i><span>وصايا في الأسرة والمجتمع</span></button>
+            <button class="item-btn" type="button" data-demo="lesson" data-number="3"><i class="fa-solid fa-compass"></i><span>وصايا في طلب العلم والعمل</span></button>
+            <button class="item-btn" type="button" data-demo="lesson" data-number="4"><i class="fa-solid fa-hands-praying"></i><span>وصايا روحية وإيمانية</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المشاريع الثقافية -->
+    <section id="page-cultural-projects" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-landmark"></i><span>المشاريع الثقافية</span></h2><div class="section-subtitle">مشاريع تخدم المعرفة والوعي وبناء المحتوى</div></div></div>
+          <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-book"></i></div><h3>المكتبة الرقمية</h3><p>رقمنة الكتب والأبحاث وفهرستها بصورة سهلة الوصول.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-video"></i></div><h3>الإنتاج المرئي</h3><p>إنتاج وتنظيم المحاضرات والدروس والمواد التعليمية.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-people-group"></i></div><h3>البرامج الثقافية</h3><p>ملتقيات ودورات ومسارات معرفية للمجتمع.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المشاريع الخيرية -->
+    <section id="page-charity-projects" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-hand-holding-heart"></i><span>المشاريع الخيرية</span></h2><div class="section-subtitle">مبادرات إنسانية وخدمية قابلة للإضافة والتحديث</div></div></div>
+          <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-basket-shopping"></i></div><h3>السلال والمساعدات</h3><p>تنظيم المساعدات العينية ودعم الأسر المحتاجة.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-kit-medical"></i></div><h3>الرعاية الصحية</h3><p>مبادرات صحية ومساهمات علاجية وفق برامج المؤسسة.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div><h3>الدعم التعليمي</h3><p>مساندة الطلاب والبرامج التعليمية للفئات المستحقة.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- عن المؤسسة -->
+    <section id="page-about" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="card page-card">
+          <div class="section-head"><div><h2 class="section-title"><i class="fa-solid fa-building-circle-info"></i><span>عن المؤسسة</span></h2><div class="section-subtitle">تعريف بالمؤسسة ورسالتها ومجالات عملها</div></div></div>
+          <p class="about-copy">مؤسسة العقيلة الثقافية الخيرية منصة ثقافية وخيرية تهتم بالمعرفة وخدمة المجتمع ونشر علوم أهل البيت عليهم السلام، وتعمل على تنظيم المحتوى والمشاريع والمبادرات بصورة حديثة.</p>
+          <div class="feature-grid" style="margin-top:16px">
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div><h3>الرسالة</h3><p>نشر المعرفة النافعة وتحويلها إلى خدمة وعمل مجتمعي.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-eye"></i></div><h3>الرؤية</h3><p>منصة موثوقة للمحتوى الثقافي والخيري وخدمة الإنسان.</p></article>
+            <article class="feature-card"><div class="feature-icon"><i class="fa-solid fa-phone"></i></div><h3>التواصل</h3><p dir="ltr">+967 779 018 414<br>alaqeelafoundation@gmail.com</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- التواصل -->
+    <section id="page-contact" class="page">
+      <div class="container">
+        <button class="back-btn" type="button" data-back="page-home"><i class="fa-solid fa-arrow-right"></i><span>العودة للرئيسية</span></button>
+        <div class="contact-grid">
+          <div class="card page-card">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title"><i class="fa-solid fa-envelope"></i><span>تواصل معنا</span></h2>
+              </div>
+            </div>
+            <form id="contactForm">
+              <div class="field">
+                <label for="name">الاسم الكامل</label>
+                <input id="name" name="name" type="text" required placeholder="الاسم الكامل">
+              </div>
+              <div class="field">
+                <label for="email">البريد الإلكتروني</label>
+                <input id="email" name="email" type="email" required placeholder="البريد الإلكتروني">
+              </div>
+              <div class="field">
+                <label for="message">الرسالة</label>
+                <textarea id="message" name="message" rows="6" required placeholder="اكتب رسالتك هنا..."></textarea>
+              </div>
+              <button class="submit-btn" type="submit"><i class="fa-solid fa-paper-plane"></i> <span>إرسال الرسالة</span></button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="card page-card">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title"><i class="fa-solid fa-circle-info"></i><span>بيانات التواصل</span></h2>
+              </div>
+            </div>
+            <div class="contact-info">
+              <a class="contact-row" href="tel:+967779018414">
+                <i class="fa-solid fa-phone"></i>
+                <div><strong>الهاتف</strong><span dir="ltr">+967 779 018 414</span></div>
+              </a>
+              <a class="contact-row" href="mailto:alaqeelafoundation@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <div><strong>البريد الإلكتروني</strong><span>alaqeelafoundation@gmail.com</span></div>
+              </a>
+              <div class="contact-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <div><strong>العنوان</strong><span>اليمن</span></div>
+              </div>
+              <div class="map-placeholder">
+                <div>
+                  <i class="fa-solid fa-map-location-dot" style="font-size:34px;color:var(--gold-2);margin-bottom:8px"></i>
+                  <div>ضع هنا رابط أو تضمين خريطة الموقع الفعلي للمؤسسة.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- نافذة التفاصيل -->
+  <div class="details-panel" id="detailsPanel" role="dialog" aria-modal="true" aria-labelledby="detailsTitle" aria-hidden="true">
+    <div class="details-dialog">
+      <div class="details-head"><span class="details-kicker" id="detailsKicker">—</span><button type="button" class="search-close" id="detailsClose" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button></div>
+      <h2 id="detailsTitle">—</h2>
+      <p id="detailsBody">—</p>
+      <button type="button" class="btn-primary details-close-btn" id="detailsOk"><i class="fa-solid fa-check"></i><span>حسناً</span></button>
+    </div>
+  </div>
+
+  <!-- البحث -->
+  <div class="search-panel" id="searchPanel" role="dialog" aria-modal="true" aria-label="البحث">
+    <div class="search-dialog">
+      <div class="search-head">
+        <input type="search" id="searchInput" placeholder="ابحث في الموقع...">
+        <button type="button" class="search-close" id="searchClose" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- التذييل -->
+  <footer>
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>مؤسسة العقيلة</h3>
+          <p>منصة ثقافية وخيرية تهتم بنشر المعرفة وخدمة المجتمع وبناء المحتوى الإسلامي بصورة منظمة وحديثة.</p>
+        </div>
+        <div>
+          <div class="footer-title">روابط سريعة</div>
+          <div class="footer-links">
+            <a href="#" data-target="page-home">الرئيسية</a>
+            <a href="#" data-target="page-tafsir">تفسير القرآن الكريم</a>
+            <a href="#" data-target="page-lectures">الدروس والمحاضرات</a>
+            <a href="#" data-target="page-books">المؤلفات</a>
+            <a href="#" data-target="page-mishkat">منصة مشكاة</a>
+            <a href="#" data-target="page-fatwa">استفتاء</a>
+            <a href="#" data-target="page-visuals">مرئيات</a>
+            <a href="#" data-target="page-wasaya">وصايا</a>
+            <a href="#" data-target="page-cultural-projects">المشاريع الثقافية</a>
+            <a href="#" data-target="page-charity-projects">المشاريع الخيرية</a>
+            <a href="#" data-target="page-about">عن المؤسسة</a>
+            <a href="#" data-target="page-contact">تواصل معنا</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">التواصل الاجتماعي</div>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://wa.me/967779018414" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container"><span>جميع الحقوق محفوظة © 2026 مؤسسة العقيلة الثقافية الخيرية</span></div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="app.js"></script>
+</body>
+</html>
