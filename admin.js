@@ -30,20 +30,39 @@
     records=allRecords.filter(x=>x.section===currentSection&&(!q||x.title.toLowerCase().includes(q))&&(status==="all"||(status==="published"?x.published:!x.published)));
     $("#contentRows").innerHTML=records.map(x=>`<tr><td><strong>${escapeHTML(x.title)}</strong><br><small>${escapeHTML(x.summary||"")}</small></td><td>${escapeHTML(labels[x.section]||x.section)}</td><td><span class="status ${x.published?"live":"draft"}">${x.published?"منشور":"مسودة"}</span></td><td>${escapeHTML(x.item_date||new Date(x.created_at).toLocaleDateString("ar"))}</td><td><div class="actions"><button class="action-btn" data-edit="${x.id}" title="تعديل"><i class="fa-solid fa-pen"></i></button><button class="action-btn delete" data-delete="${x.id}" title="حذف"><i class="fa-solid fa-trash"></i></button></div></td></tr>`).join("")||'<tr><td colspan="5" class="empty-state">لا توجد مواد مطابقة.</td></tr>';
   }
+  function updateEditorLabels(){
+    const isNews=$("#itemSection").value==="news";
+    $("#summaryLabel").textContent=isNews?"موجز الخبر":"نبذة مختصرة";
+    $("#bodyLabel").textContent=isNews?"نص الخبر":"التفاصيل";
+    $("#mediaLabel").textContent=isNews?"صورة الخبر أو الفيديو":"صورة المادة أو ملفها";
+    $("#itemSummary").placeholder=isNews?"اكتب موجزاً مختصراً عن الخبر":"اكتب وصفاً موجزاً للمادة";
+    $("#itemBody").placeholder=isNews?"اكتب نص الخبر الكامل هنا":"النص الكامل أو التفاصيل الإضافية";
+  }
   function openEditor(item=null){
     $("#contentForm").reset();$("#itemId").value=item?.id||"";$("#editorHeading").textContent=item?"تعديل المادة":"إضافة مادة جديدة";
     $("#itemTitle").value=item?.title||"";$("#itemSection").value=item?.section||currentSection;$("#itemDate").value=item?.item_date||"";
     $("#itemSummary").value=item?.summary||"";$("#itemBody").value=item?.body||"";$("#itemMedia").value=item?.media_url||"";
-    $("#itemSort").value=item?.sort_order??0;$("#itemPublished").checked=!!item?.published;
+    $("#itemMediaCurrent").innerHTML=item?.media_url?`<a href="${escapeHTML(item.media_url)}" target="_blank" rel="noopener">عرض الوسائط الحالية</a><small>يمكنك اختيار ملف جديد لاستبدالها.</small>`:"";
+    $("#itemSort").value=item?.sort_order??0;$("#itemPublished").checked=!!item?.published;updateEditorLabels();
     note("#editorNotice","",false);show($("#editorModal"),true);
   }
   function closeEditor(){show($("#editorModal"),false);}
   async function saveItem(e){
     e.preventDefault();const id=$("#itemId").value;
+    const selectedMedia=$("#itemMediaFile").files[0];
     const payload={title:$("#itemTitle").value.trim(),section:$("#itemSection").value,item_date:$("#itemDate").value||null,summary:$("#itemSummary").value.trim(),body:$("#itemBody").value.trim(),media_url:$("#itemMedia").value.trim(),sort_order:Number($("#itemSort").value)||0,published:$("#itemPublished").checked};
     if(!payload.title){note("#editorNotice","يرجى كتابة عنوان المادة.");return;}
     const btn=$("#saveItemBtn");btn.disabled=true;btn.textContent="جارٍ الحفظ...";
     try{
+      if(selectedMedia){
+        note("#editorNotice","جارٍ رفع الصورة أو الفيديو...",false);
+        const safeName=selectedMedia.name.normalize("NFKD").replace(/[^\\w.\\-ء-ي]+/g,"-").slice(-90);
+        const path=`${Date.now()}-${safeName}`;
+        const {data:uploaded,error:uploadError}=await client.storage.from("site-media").upload(path,selectedMedia,{upsert:false,contentType:selectedMedia.type});
+        if(uploadError)throw uploadError;
+        const {data:publicData}=client.storage.from("site-media").getPublicUrl(uploaded.path);
+        payload.media_url=publicData.publicUrl;
+      }
       let result;
       if(id) result=await client.from("site_content").update(payload).eq("id",id);
       else result=await client.from("site_content").insert({...payload,created_by:currentUser.id});
@@ -95,7 +114,7 @@
     $$(".nav-item").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.section==="overview")showOverview();else if(b.dataset.section==="media"){show($("#overviewView"),false);show($("#contentView"),false);show($("#mediaView"),true);$("#pageHeading").textContent="الملفات والصور";$$(".nav-item").forEach(x=>x.classList.toggle("active",x===b));}else setSection(b.dataset.section);$("#sidebar").classList.remove("open");}));
     $("#quickAdd").addEventListener("click",()=>openEditor());$("#addItemBtn").addEventListener("click",()=>openEditor());
     $("#closeEditor").addEventListener("click",closeEditor);$("#cancelEditor").addEventListener("click",closeEditor);
-    $("#contentForm").addEventListener("submit",saveItem);$("#contentSearch").addEventListener("input",renderRows);$("#statusFilter").addEventListener("change",renderRows);
+    $("#contentForm").addEventListener("submit",saveItem);$("#itemSection").addEventListener("change",updateEditorLabels);$("#contentSearch").addEventListener("input",renderRows);$("#statusFilter").addEventListener("change",renderRows);
     $("#contentRows").addEventListener("click",e=>{const edit=e.target.closest("[data-edit]"),del=e.target.closest("[data-delete]");if(edit)openEditor(allRecords.find(x=>x.id===edit.dataset.edit));if(del)deleteItem(del.dataset.delete);});
     $("#mediaFile").addEventListener("change",e=>uploadFile(e.target.files[0]));
     const {data:{session}}=await client.auth.getSession();if(session){try{await enter(session.user);}catch(err){await client.auth.signOut();note("#loginNotice",err.message);}}
