@@ -768,3 +768,17 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 }
 .footer-artwork{width:100%;background:#050505;text-align:center;overflow:hidden}
 .footer-artwork img{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto}
+
+
+/* ضبط حجم شعار المؤسسة ومخطوطها وصورة التذييل */
+.brand-image-block{align-items:center!important;justify-content:flex-start!important;gap:14px!important}
+.brand-logo-image{width:76px!important;height:76px!important;object-fit:cover!important;object-position:center!important;flex:0 0 76px!important}
+.brand-name-image{width:min(330px,100%)!important;max-height:96px!important;object-fit:contain!important;object-position:center!important;align-self:center!important}
+.footer-artwork{height:clamp(115px,20vw,205px)!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.footer-artwork img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:center!important}
+@media(max-width:680px){
+ .brand-image-block{gap:8px!important}
+ .brand-logo-image{width:52px!important;height:52px!important;flex-basis:52px!important}
+ .brand-name-image{width:min(230px,calc(100vw - 140px))!important;max-height:65px!important}
+ .footer-artwork{height:125px!important}
+}
