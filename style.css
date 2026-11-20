@@ -894,3 +894,18 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
   .header-main .header-actions #homeBtn{right:80px!important}
   .header-main .header-actions #menuToggle{left:8px!important;right:auto!important}
 }
+
+/* تصغير أيقونات الهاتف وتعزيز قابلية الضغط على زر الوضع الليلي */
+@media(max-width:768px){
+  .header-main .header-actions{z-index:10!important;pointer-events:auto!important}
+  .header-main .header-actions button{
+    width:25px!important;height:25px!important;min-width:25px!important;min-height:25px!important;
+    padding:0!important;font-size:11px!important;border-radius:5px!important;
+    pointer-events:auto!important;touch-action:manipulation!important;
+  }
+  .header-main .header-actions button i{font-size:11px!important}
+  .header-main .header-actions #themeToggle{right:6px!important}
+  .header-main .header-actions #searchOpen{right:36px!important}
+  .header-main .header-actions #homeBtn{right:66px!important}
+  .header-main .header-actions #menuToggle{left:6px!important}
+}
