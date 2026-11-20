@@ -976,3 +976,22 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 #page-home #articlesHome h3,#page-home #articlesHome .article-title{font-size:11px!important}
 #page-home #lessonsPreview{font-size:10px!important}
 #page-home #lessonsPreview h3,#page-home #lessonsPreview .item-title{font-size:11px!important}
+
+
+/* تقليص ارتفاع التذييل إلى النصف وتصغير صورة التذييل كاملة */
+.footer-main{padding:15px 0!important}
+.footer-grid{gap:10px!important}
+.footer-brand h3{font-size:12.5px!important}
+.footer-brand p{font-size:5.5px!important;margin-top:3.5px!important}
+.footer-title{font-size:6px!important;margin-bottom:4px!important}
+.footer-links{gap:3px!important}
+.footer-links a{font-size:5.5px!important}
+.footer-grid .socials{gap:4px!important}
+.footer-grid .socials a{width:17px!important;height:17px!important}
+.footer-grid .socials a i{font-size:7.5px!important}
+.footer-bottom{padding:5.5px 0!important;font-size:5px!important}
+.footer-artwork{padding:6px 0!important}
+.footer-artwork img{width:35%!important;max-width:385px!important}
+@media(max-width:680px){
+ .footer-artwork img{width:42.5%!important}
+}
