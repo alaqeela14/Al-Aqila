@@ -17,20 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-  <!-- تحديث تلقائي لنسخ CSS وJavaScript لمنع عرض الملفات القديمة من ذاكرة المتصفح -->
-  <script>
-    (function(){
-      var cacheVersion = Date.now();
-      var css = document.querySelector('link[href="style.css"]');
-      if (css) css.href = 'style.css?v=' + cacheVersion;
-      document.addEventListener('DOMContentLoaded', function(){
-        document.querySelectorAll('script[src="app.js"]').forEach(function(script){
-          script.src = 'app.js?v=' + cacheVersion;
-        });
-      });
-    })();
-  </script>
-  <link rel="stylesheet" href="style.css">
+  <!-- تحميل نسخة حديثة من ملفات التصميم عند كل زيارة -->
+  <script>document.write('<link rel="stylesheet" href="style.css?v=' + Date.now() + '">');</script>
 </head>
 
 <body>
