@@ -871,3 +871,26 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
     top:calc(100% - 46px)!important;
   }
 }
+
+/* تصحيح ترتيب الأيقونات على الهاتف: الأدوات يمينًا والقائمة يسارًا أسفل صورة الترويسة */
+@media(max-width:768px){
+  .header-main .header-grid{padding:0!important}
+  .header-main .header-actions{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    display:block!important;
+  }
+  .header-main .header-actions #themeToggle,
+  .header-main .header-actions #searchOpen,
+  .header-main .header-actions #homeBtn,
+  .header-main .header-actions #menuToggle{
+    position:absolute!important;
+    top:calc(100% - 38px)!important;
+  }
+  .header-main .header-actions #themeToggle{right:8px!important}
+  .header-main .header-actions #searchOpen{right:44px!important}
+  .header-main .header-actions #homeBtn{right:80px!important}
+  .header-main .header-actions #menuToggle{left:8px!important;right:auto!important}
+}
