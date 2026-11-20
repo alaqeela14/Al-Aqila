@@ -683,6 +683,13 @@
 
   <button class="to-top" id="toTop" type="button" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
 
-  <script src="app.js" defer></script>
+  <script>
+    (function(){
+      var script = document.createElement('script');
+      script.src = 'app.js?v=' + Date.now();
+      script.async = false;
+      document.body.appendChild(script);
+    })();
+  </script>
 </body>
 </html>
