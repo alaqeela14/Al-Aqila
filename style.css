@@ -802,18 +802,41 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 .activity-icon,.project-icon{display:none!important}
 .activity,.project{gap:0!important}
 
-/* الترويسة المصورة */
+/* الترويسة المصورة — مع الحفاظ على أزرار التحكم */
 .header-main{
   background-image:url('assets/header-bg.jpg')!important;
-  background-size:cover!important;
-  background-position:center top!important;
+  background-size:contain!important;
+  background-position:center center!important;
   background-repeat:no-repeat!important;
   position:relative!important;
   height:250px!important;
   padding:0!important;
 }
-.header-main .header-grid,
+.header-main .brand-block,
+.header-main .header-center,
 .header-main .header-date{display:none!important}
+
+/* إبقاء أزرار الوضع الليلي والبحث والرئيسية والقائمة فوق الصورة */
+.header-main .header-grid{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:flex-end!important;
+  width:100%!important;
+  padding:10px 12px!important;
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+}
+.header-main .header-actions{
+  display:flex!important;
+  pointer-events:auto!important;
+  gap:6px!important;
+}
+.header-main .header-actions button{pointer-events:auto!important}
 @media(max-width:768px){
-  .header-main{height:160px!important;background-position:center top!important}
+  .header-main{height:160px!important;background-size:100% auto!important;background-position:center center!important}
+  .header-main .header-grid{padding:6px 8px!important}
+  .header-main .header-actions{gap:4px!important}
+  .header-main .header-actions .icon-btn,
+  .header-main .header-actions .theme-toggle{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important}
 }
