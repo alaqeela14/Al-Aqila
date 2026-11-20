@@ -1078,3 +1078,15 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
   }
 }
 
+
+
+/* تفاصيل الأخبار: عرض النص الكامل والوسائط */
+.news-card[data-news-index]{cursor:pointer}
+.news-card[data-news-index]:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+.details-body{font-size:14px;line-height:2;color:var(--text,var(--ink,#333));white-space:normal}
+.details-body .news-detail-summary,.details-body .news-detail-body{margin:0 0 16px}
+.details-body strong{display:block;color:var(--green-800,#1a4d36);font-size:13px;margin-bottom:5px}
+.details-body p{margin:0;white-space:normal;line-height:2}
+.news-detail-media{margin:16px 0;text-align:center}
+.news-detail-media img,.news-detail-media video{display:block;width:100%;max-height:480px;object-fit:contain;border-radius:12px;background:#111}
+.news-detail-link a{color:var(--green-800,#1a4d36);font-weight:700;text-decoration:underline}
