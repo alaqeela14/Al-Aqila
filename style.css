@@ -999,3 +999,18 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 
 /* زيادة وضوح نصوص روابط التذييل السريعة */
 .footer-grid .footer-links a{font-size:8px!important;line-height:1.7!important}
+
+
+/* تحسين قابلية قراءة الفوتر والهيدر على الجوال */
+.footer-brand p{font-size:8px!important;line-height:1.6!important;margin-top:5px!important;margin-bottom:7px!important}
+.footer-links{gap:8px!important}
+.footer-grid .footer-links a{font-size:8px!important;line-height:1.6!important;padding-block:2px!important}
+.footer-bottom{font-size:7px!important;color:#c5d2c9!important;padding:8px 0!important;line-height:1.6!important}
+.brand-text p{font-size:13px!important;line-height:1.6!important}
+@media(max-width:680px){
+ .footer-brand p{font-size:8px!important;line-height:1.6!important}
+ .footer-links{gap:8px!important}
+ .footer-grid .footer-links a{font-size:8px!important;padding-block:2px!important}
+ .footer-bottom{font-size:7px!important;color:#d5dfd8!important;padding:8px 0!important}
+ .brand-text p{font-size:11px!important;line-height:1.6!important}
+}
