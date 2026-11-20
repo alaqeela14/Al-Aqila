@@ -728,3 +728,31 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
   .hero .contact-inline{margin-top:7px !important;gap:5px !important}
   .hero .contact-chip{padding:4px 7px !important;font-size:8.5px !important;gap:5px !important;max-width:100%;overflow-wrap:anywhere}
 }
+
+/* تحسين اختصار رأس الموقع والشريط المتحرك */
+@media(max-width:680px){
+  .header-main{padding:8px 0 !important}
+  .header-grid{gap:7px !important}
+  .brand-mark{display:none !important}
+  .brand-block{gap:0 !important}
+  .brand-text h1{font-size:19px !important;line-height:1.15 !important}
+  .brand-text p{font-size:8px !important;margin-top:1px !important}
+  .header-actions{gap:5px !important}
+  .header-actions .icon-btn{width:30px !important;height:30px !important;border-radius:8px !important;font-size:12px !important}
+  .header-actions .theme-toggle{width:28px !important;height:28px !important;font-size:11px !important}
+  .header-date{margin-top:3px !important;font-size:9px !important;gap:0 !important}
+  .date-row{padding:0 !important;gap:5px !important}
+  .date-row .clock{font-size:10px !important}
+  .date-row .gregorian{font-size:9px !important}
+  .date-row .hijri,.date-row .dot-sep{display:none !important}
+  .marquee-track{padding:3px 0 !important;font-size:12px !important}
+}
+@media(min-width:681px){
+  .brand-mark{display:none !important}
+  .header-main{padding:12px 0 !important}
+  .header-date{margin-top:4px !important}
+  .date-row{padding:0 !important;font-size:10px !important}
+  .date-row .clock{font-size:11px !important}
+  .date-row .hijri,.date-row .dot-sep{display:none !important}
+  .marquee-track{padding:4px 0 !important;font-size:13px !important}
+}
