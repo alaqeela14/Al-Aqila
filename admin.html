@@ -46,6 +46,9 @@
         <button class="nav-item" data-section="articles"><i class="fa-solid fa-file-lines"></i> المقالات والمواد</button>
         <button class="nav-item" data-section="lectures"><i class="fa-solid fa-microphone-lines"></i> الدروس والمحاضرات</button>
         <button class="nav-item" data-section="projects"><i class="fa-solid fa-hand-holding-heart"></i> المشاريع</button>
+        <button class="nav-item" data-section="activities"><i class="fa-solid fa-calendar-check"></i> الأنشطة</button>
+        <button class="nav-item" data-section="series"><i class="fa-solid fa-layer-group"></i> السلاسل</button>
+        <button class="nav-item" data-section="topics"><i class="fa-solid fa-tags"></i> الموضوعات</button>
         <button class="nav-item" data-section="media"><i class="fa-solid fa-images"></i> الملفات والصور</button>
       </nav>
       <div class="side-bottom"><a href="./" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> عرض الموقع</a><button id="logoutBtn" class="logout"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</button></div>
@@ -89,7 +92,7 @@
         <input id="itemId" type="hidden">
         <div class="form-grid">
           <div class="form-field wide"><label for="itemTitle">العنوان *</label><input id="itemTitle" required maxlength="180" placeholder="عنوان المادة"></div>
-          <div class="form-field"><label for="itemSection">القسم *</label><select id="itemSection" required><option value="news">الأخبار والنشاطات</option><option value="books">مكتبة المؤسسة</option><option value="articles">المقالات والمواد</option><option value="lectures">الدروس والمحاضرات</option><option value="projects">المشاريع</option></select></div>
+          <div class="form-field"><label for="itemSection">القسم *</label><select id="itemSection" required><option value="news">الأخبار والنشاطات</option><option value="books">مكتبة المؤسسة</option><option value="articles">المقالات والمواد</option><option value="lectures">الدروس والمحاضرات</option><option value="projects">المشاريع</option><option value="activities">الأنشطة</option><option value="series">السلاسل</option><option value="topics">الموضوعات</option></select></div>
           <div class="form-field"><label for="itemDate">التاريخ</label><input id="itemDate" type="date"></div>
           <div class="form-field wide"><label for="itemSummary">نبذة مختصرة</label><textarea id="itemSummary" rows="3" maxlength="1200" placeholder="اكتب وصفاً موجزاً للمادة"></textarea></div>
           <div class="form-field wide"><label for="itemBody">التفاصيل</label><textarea id="itemBody" rows="6" placeholder="النص الكامل أو التفاصيل الإضافية"></textarea></div>
