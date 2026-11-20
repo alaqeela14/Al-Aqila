@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#102d20">
+  <title>لوحة تحكم مؤسسة العقيلة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="auth-wrap" id="loginView">
+    <section class="auth-card">
+      <a class="back-site" href="./"><i class="fa-solid fa-arrow-right"></i> العودة إلى الموقع</a>
+      <div class="brand-mark"><i class="fa-solid fa-building-columns"></i></div>
+      <p class="eyebrow">الإدارة الرقمية</p>
+      <h1>لوحة تحكم مؤسسة العقيلة</h1>
+      <p class="muted">سجّل الدخول لإدارة محتوى الموقع.</p>
+      <form id="loginForm">
+        <label for="loginEmail">البريد الإلكتروني</label>
+        <input id="loginEmail" type="email" autocomplete="username" required placeholder="name@example.com">
+        <label for="loginPassword">كلمة المرور</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required placeholder="كلمة المرور">
+        <button class="primary-btn full" type="submit"><i class="fa-solid fa-lock"></i> تسجيل الدخول</button>
+      </form>
+      <p class="notice" id="loginNotice" role="status"></p>
+      <small>الدخول مخصص للمستخدمين الذين أضافهم مدير النظام.</small>
+    </section>
+  </main>
+
+  <div class="dashboard hidden" id="dashboardView">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-brand"><span class="brand-mark small"><i class="fa-solid fa-building-columns"></i></span><div><strong>مؤسسة العقيلة</strong><small>لوحة الإدارة</small></div></div>
+      <nav class="side-nav" aria-label="أقسام لوحة التحكم">
+        <button class="nav-item active" data-section="overview"><i class="fa-solid fa-gauge-high"></i> الرئيسية</button>
+        <button class="nav-item" data-section="news"><i class="fa-solid fa-newspaper"></i> الأخبار والنشاطات</button>
+        <button class="nav-item" data-section="books"><i class="fa-solid fa-book"></i> مكتبة المؤسسة</button>
+        <button class="nav-item" data-section="articles"><i class="fa-solid fa-file-lines"></i> المقالات والمواد</button>
+        <button class="nav-item" data-section="lectures"><i class="fa-solid fa-microphone-lines"></i> الدروس والمحاضرات</button>
+        <button class="nav-item" data-section="projects"><i class="fa-solid fa-hand-holding-heart"></i> المشاريع</button>
+        <button class="nav-item" data-section="media"><i class="fa-solid fa-images"></i> الملفات والصور</button>
+      </nav>
+      <div class="side-bottom"><a href="./" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> عرض الموقع</a><button id="logoutBtn" class="logout"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</button></div>
+    </aside>
+
+    <section class="main-area">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-button" aria-label="فتح القائمة"><i class="fa-solid fa-bars"></i></button>
+        <div><span class="top-kicker">نظام إدارة المحتوى</span><h2 id="pageHeading">الرئيسية</h2></div>
+        <div class="user-chip"><span class="user-avatar"><i class="fa-solid fa-user-shield"></i></span><span id="userEmail">المدير</span></div>
+      </header>
+
+      <section class="view" id="overviewView">
+        <div class="welcome-panel"><div><p>مرحباً بك في لوحة الإدارة</p><h1>إدارة محتوى المؤسسة من مكان واحد</h1><span>أضف المواد وحدّثها، ثم انشرها لتظهر في الموقع.</span></div><i class="fa-solid fa-layer-group"></i></div>
+        <div class="stats-grid">
+          <article class="stat-card"><span>إجمالي المواد</span><strong id="statAll">—</strong><i class="fa-solid fa-folder-open"></i></article>
+          <article class="stat-card"><span>مواد منشورة</span><strong id="statPublished">—</strong><i class="fa-solid fa-earth-asia"></i></article>
+          <article class="stat-card"><span>مسودات</span><strong id="statDrafts">—</strong><i class="fa-solid fa-file-pen"></i></article>
+        </div>
+        <div class="panel-card"><div class="panel-head"><div><h3>آخر المواد المضافة</h3><p>أحدث ما تم حفظه في قاعدة المحتوى</p></div><button class="primary-btn" id="quickAdd"><i class="fa-solid fa-plus"></i> إضافة مادة</button></div><div id="recentItems" class="recent-list"><div class="empty-state">جارٍ تحميل البيانات...</div></div></div>
+        <div class="setup-tip"><i class="fa-solid fa-circle-info"></i><div><strong>ملاحظة الإعداد الأولي</strong><p>تحتاج اللوحة إلى ربط مشروع Supabase وإضافة حساب المدير مرة واحدة. لا تضع مفاتيح سرية أو كلمات مرور في ملفات الموقع.</p></div></div>
+      </section>
+
+      <section class="view hidden" id="contentView">
+        <div class="content-toolbar"><div><h3 id="contentTitle">المحتوى</h3><p id="contentDescription">إدارة المواد المنشورة والمسودات</p></div><button class="primary-btn" id="addItemBtn"><i class="fa-solid fa-plus"></i> إضافة جديد</button></div>
+        <div class="filter-row"><input id="contentSearch" type="search" placeholder="ابحث في العناوين..."><select id="statusFilter"><option value="all">كل الحالات</option><option value="published">منشور</option><option value="draft">مسودة</option></select></div>
+        <div class="panel-card table-card"><div class="table-wrap"><table><thead><tr><th>العنوان</th><th>القسم</th><th>الحالة</th><th>تاريخ الإضافة</th><th>الإجراءات</th></tr></thead><tbody id="contentRows"><tr><td colspan="5" class="empty-state">اختر قسماً لعرض مواده.</td></tr></tbody></table></div></div>
+      </section>
+
+      <section class="view hidden" id="mediaView">
+        <div class="content-toolbar"><div><h3>الملفات والصور</h3><p>رفع ملفات الوسائط إلى مساحة التخزين المرتبطة بالموقع</p></div></div>
+        <div class="panel-card upload-card"><label class="upload-zone" for="mediaFile"><i class="fa-solid fa-cloud-arrow-up"></i><strong>اختر صورة أو ملفاً لرفعه</strong><span>سيظهر رابط الملف بعد اكتمال الرفع</span><input id="mediaFile" type="file" accept="image/*,.pdf,.mp3,.mp4"></label><p class="notice" id="uploadNotice"></p><div id="uploadedFiles"></div></div>
+      </section>
+    </section>
+  </div>
+
+  <div class="modal hidden" id="editorModal" role="dialog" aria-modal="true" aria-labelledby="editorHeading">
+    <div class="modal-card">
+      <div class="modal-head"><div><span class="top-kicker">إدارة المحتوى</span><h2 id="editorHeading">إضافة مادة جديدة</h2></div><button id="closeEditor" class="icon-button" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button></div>
+      <form id="contentForm">
+        <input id="itemId" type="hidden">
+        <div class="form-grid">
+          <div class="form-field wide"><label for="itemTitle">العنوان *</label><input id="itemTitle" required maxlength="180" placeholder="عنوان المادة"></div>
+          <div class="form-field"><label for="itemSection">القسم *</label><select id="itemSection" required><option value="news">الأخبار والنشاطات</option><option value="books">مكتبة المؤسسة</option><option value="articles">المقالات والمواد</option><option value="lectures">الدروس والمحاضرات</option><option value="projects">المشاريع</option></select></div>
+          <div class="form-field"><label for="itemDate">التاريخ</label><input id="itemDate" type="date"></div>
+          <div class="form-field wide"><label for="itemSummary">نبذة مختصرة</label><textarea id="itemSummary" rows="3" maxlength="1200" placeholder="اكتب وصفاً موجزاً للمادة"></textarea></div>
+          <div class="form-field wide"><label for="itemBody">التفاصيل</label><textarea id="itemBody" rows="6" placeholder="النص الكامل أو التفاصيل الإضافية"></textarea></div>
+          <div class="form-field wide"><label for="itemMedia">رابط الصورة أو الملف أو الفيديو</label><input id="itemMedia" type="url" placeholder="https://..."></div>
+          <div class="form-field"><label for="itemSort">ترتيب العرض</label><input id="itemSort" type="number" value="0"></div>
+          <div class="form-field check-field"><label><input id="itemPublished" type="checkbox"> نشر المادة على الموقع</label></div>
+        </div>
+        <div class="modal-actions"><button type="button" class="secondary-btn" id="cancelEditor">إلغاء</button><button type="submit" class="primary-btn" id="saveItemBtn"><i class="fa-solid fa-floppy-disk"></i> حفظ المادة</button></div>
+        <p class="notice" id="editorNotice" role="status"></p>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
