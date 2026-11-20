@@ -9,7 +9,7 @@
   const note = (id, message, error = true) => { const el=$(id); if(el){el.textContent=message;el.style.color=error?"#a33b36":"#287346";} };
   const toast = (message) => { const el=$("#toast");el.textContent=message;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2600); };
   const escapeHTML = (s) => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-  function setupMessage(){note("#loginNotice","لم يتم إعداد الاتصال بعد. أضف بيانات مشروع Supabase في ملف supabase-config.js ثم أعد تحميل الصفحة.");}
+  function setupMessage(){note("#loginNotice","لم يتم إعداد الاتصال بعد. أضف بيانات مشروع Supabase في ملف supabase-config.js ثم أعد تحميل الصفحة.");const submit=$("#loginForm button[type=submit]");if(submit)submit.disabled=true;}
   async function isAdmin(user){
     const {data,error}=await client.from("admin_users").select("user_id,display_name").eq("user_id",user.id).eq("active",true).maybeSingle();
     if(error) throw error;
