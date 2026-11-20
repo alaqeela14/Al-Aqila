@@ -661,4 +661,35 @@ window.addEventListener("hashchange", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", init);
+async function loadManagedSiteContent(){
+  const cfg = window.SUPABASE_CONFIG || {};
+  if(!window.supabase || !cfg.url || !cfg.anonKey || cfg.url.includes("YOUR_") || cfg.anonKey.includes("YOUR_")) return;
+  try{
+    const client = window.supabase.createClient(cfg.url,cfg.anonKey);
+    const {data,error} = await client.from("site_content")
+      .select("section,title,summary,body,media_url,item_date,sort_order,created_at")
+      .eq("published",true)
+      .order("sort_order",{ascending:true})
+      .order("created_at",{ascending:false});
+    if(error) throw error;
+    const grouped = {};
+    (data||[]).forEach(item => (grouped[item.section] ||= []).push(item));
+    if(grouped.news?.length) DATA.news = grouped.news.map(x=>({title:x.title,date:x.item_date||"",desc:x.summary||x.body||"",url:x.media_url||""}));
+    if(grouped.books?.length) DATA.books = grouped.books.map(x=>({title:x.title,desc:x.summary||x.body||"",url:x.media_url||""}));
+    if(grouped.articles?.length) DATA.articles = grouped.articles.map(x=>({title:x.title,author:x.summary||"مؤسسة العقيلة",url:x.media_url||""}));
+    if(grouped.lectures?.length) DATA.lessons = grouped.lectures.map(x=>x.title);
+    if(grouped.projects?.length) DATA.projects = grouped.projects.map(x=>({icon:"fa-seedling",title:x.title,desc:x.summary||x.body||""}));
+    if(grouped.activities?.length) DATA.activities = grouped.activities.map(x=>({icon:"fa-calendar-check",title:x.title,desc:x.summary||x.body||""}));
+    if(grouped.series?.length) DATA.series = grouped.series.map(x=>({title:x.title,icon:"fa-video"}));
+    if(grouped.topics?.length) DATA.topics = grouped.topics.map(x=>x.title);
+    if(grouped.news?.length) DATA.latest = grouped.news.slice(0,5).map(x=>({title:x.title,date:x.item_date||"أخبار المؤسسة"}));
+    renderHome();renderTafsirSeries();renderTopics();renderBooks();
+  }catch(error){
+    console.warn("تعذر تحميل المحتوى المُدار؛ سيستمر الموقع بالبيانات الحالية:",error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+  loadManagedSiteContent();
+});
