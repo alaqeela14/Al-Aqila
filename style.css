@@ -801,3 +801,19 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 /* إزالة الرموز من بطاقات الأنشطة والمشاريع */
 .activity-icon,.project-icon{display:none!important}
 .activity,.project{gap:0!important}
+
+/* الترويسة المصورة */
+.header-main{
+  background-image:url('assets/header-bg.jpg')!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  background-repeat:no-repeat!important;
+  position:relative!important;
+  height:250px!important;
+  padding:0!important;
+}
+.header-main .header-grid,
+.header-main .header-date{display:none!important}
+@media(max-width:768px){
+  .header-main{height:160px!important;background-position:center top!important}
+}
