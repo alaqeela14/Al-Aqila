@@ -33,14 +33,20 @@ alter table public.admin_users enable row level security;
 alter table public.site_content enable row level security;
 
 -- يستطيع المستخدم قراءة سجل صلاحياته فقط؛ لا يستطيع منح نفسه صلاحية.
+drop policy if exists "admins_read_own_membership" on public.admin_users;
+
 create policy "admins_read_own_membership"
 on public.admin_users for select to authenticated
 using (user_id = auth.uid() and active = true);
 
 -- المحتوى المنشور متاح للزوار، والمسودات متاحة للمديرين فقط.
+drop policy if exists "public_read_published_content" on public.site_content;
+
 create policy "public_read_published_content"
 on public.site_content for select to anon, authenticated
 using (published = true);
+
+drop policy if exists "admins_read_all_content" on public.site_content;
 
 create policy "admins_read_all_content"
 on public.site_content for select to authenticated
@@ -49,6 +55,8 @@ using (exists (
   where a.user_id = auth.uid() and a.active = true
 ));
 
+drop policy if exists "admins_insert_content" on public.site_content;
+
 create policy "admins_insert_content"
 on public.site_content for insert to authenticated
 with check (
@@ -56,10 +64,14 @@ with check (
   and (created_by is null or created_by = auth.uid())
 );
 
+drop policy if exists "admins_update_content" on public.site_content;
+
 create policy "admins_update_content"
 on public.site_content for update to authenticated
 using (exists (select 1 from public.admin_users a where a.user_id = auth.uid() and a.active = true))
 with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid() and a.active = true));
+
+drop policy if exists "admins_delete_content" on public.site_content;
 
 create policy "admins_delete_content"
 on public.site_content for delete to authenticated
@@ -84,9 +96,13 @@ values ('site-media', 'site-media', true, 52428800,
   array['image/jpeg','image/png','image/webp','image/gif','application/pdf','audio/mpeg','video/mp4'])
 on conflict (id) do nothing;
 
+drop policy if exists "public_read_site_media" on storage.objects;
+
 create policy "public_read_site_media"
 on storage.objects for select to anon, authenticated
 using (bucket_id = 'site-media');
+
+drop policy if exists "admins_upload_site_media" on storage.objects;
 
 create policy "admins_upload_site_media"
 on storage.objects for insert to authenticated
@@ -94,6 +110,8 @@ with check (
   bucket_id = 'site-media'
   and exists (select 1 from public.admin_users a where a.user_id = auth.uid() and a.active = true)
 );
+
+drop policy if exists "admins_update_site_media" on storage.objects;
 
 create policy "admins_update_site_media"
 on storage.objects for update to authenticated
@@ -105,6 +123,8 @@ with check (
   bucket_id = 'site-media'
   and exists (select 1 from public.admin_users a where a.user_id = auth.uid() and a.active = true)
 );
+
+drop policy if exists "admins_delete_site_media" on storage.objects;
 
 create policy "admins_delete_site_media"
 on storage.objects for delete to authenticated
