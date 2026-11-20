@@ -790,12 +790,12 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 .header-actions{gap:5px!important}
 .header-actions .icon-btn,.header-actions .theme-toggle{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;border-radius:7px!important;font-size:14px!important;padding:0!important}
 .header-actions .icon-btn i,.header-actions .theme-toggle i{font-size:14px!important}
-.nav-link{padding:5px 8px!important;font-size:11px!important}
+.nav-link{padding:6px 9px!important;font-size:13px!important}
 @media(max-width:680px){
  .header-main{padding:4px 0!important}
  .header-actions .icon-btn,.header-actions .theme-toggle{width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;font-size:12px!important;border-radius:6px!important}
  .header-actions .icon-btn i,.header-actions .theme-toggle i{font-size:12px!important}
- .nav-link{padding:4px 6px!important;font-size:10px!important}
+ .nav-link{padding:5px 7px!important;font-size:12px!important}
 }
 
 /* إزالة الرموز من بطاقات الأنشطة والمشاريع */
