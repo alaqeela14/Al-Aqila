@@ -1,7 +1,7 @@
 /* إعدادات الربط العامة فقط.
-   ضع Project URL و anon/publishable key من إعدادات Supabase.
-   لا تضع service_role key أو أي كلمة مرور في هذا الملف. */
+   هذا الملف مخصص لرابط المشروع ومفتاح Publishable العام.
+   لا تضع service_role key أو Secret key أو أي كلمة مرور هنا. */
 window.SUPABASE_CONFIG = {
-  url: "YOUR_SUPABASE_PROJECT_URL",
-  anonKey: "YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY"
+  url: "https://dzvyxdlglmbxnvnvoczq.supabase.co",
+  anonKey: "sb_publishable_XRaUeEV2IUT_bNLPv5hpvw_1SpiSZzN"
 };
