@@ -961,3 +961,18 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 #page-home .section{margin-top:18px!important}
 .footer-grid .socials a{width:34px!important;height:34px!important;font-size:15px!important}
 .footer-grid .socials a i{font-size:15px!important}
+
+/* ضبط دقيق لعناوين ونصوص أقسام الصفحة الرئيسية */
+#page-home .section-head .section-title{font-size:15px!important;line-height:1.4!important;margin:0!important}
+#page-home .section-head .section-title i{font-size:13px!important}
+#page-home .section-head .section-subtitle{font-size:9px!important;line-height:1.5!important;margin-top:3px!important}
+#page-home .section-head .btn-secondary{font-size:9px!important;padding:5px 9px!important}
+#page-home .latest-box{font-size:11px!important}
+#page-home .latest-text{font-size:13px!important;line-height:1.6!important}
+#page-home .latest-badge{font-size:8px!important}
+#page-home .latest-date{font-size:8px!important}
+#page-home .activity h4,#page-home .project h4{font-size:11px!important;line-height:1.45!important}
+#page-home .activity p,#page-home .project p{font-size:9px!important;line-height:1.6!important}
+#page-home #articlesHome h3,#page-home #articlesHome .article-title{font-size:11px!important}
+#page-home #lessonsPreview{font-size:10px!important}
+#page-home #lessonsPreview h3,#page-home #lessonsPreview .item-title{font-size:11px!important}
