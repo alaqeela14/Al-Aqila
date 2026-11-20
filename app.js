@@ -184,6 +184,30 @@ function openDetails(kicker, title, body){
   $("#detailsOk").focus();
 }
 
+function openNewsDetails(item){
+  $("#detailsKicker").textContent = item.date || "أخبار المؤسسة";
+  $("#detailsTitle").textContent = item.title || "تفاصيل الخبر";
+  const summary = item.desc ? `<div class="news-detail-summary"><strong>موجز الخبر</strong><p>${esc(item.desc).replace(/\\n/g,"<br>")}</p></div>` : "";
+  const body = item.body ? `<div class="news-detail-body"><strong>نص الخبر</strong><p>${esc(item.body).replace(/\\n/g,"<br>")}</p></div>` : "";
+  let media = "";
+  if(item.url){
+    const url = esc(item.url);
+    if(/\\.(mp4|webm)(?:[?#]|$)/i.test(item.url)){
+      media = `<div class="news-detail-media"><video controls playsinline preload="metadata" src="${url}"></video></div>`;
+    }else if(/\\.(jpe?g|png|webp|gif|avif)(?:[?#]|$)/i.test(item.url)){
+      media = `<div class="news-detail-media"><img src="${url}" alt="${esc(item.title)}"></div>`;
+    }else{
+      media = `<p class="news-detail-link"><a href="${url}" target="_blank" rel="noopener">عرض الصورة أو الفيديو أو الملف</a></p>`;
+    }
+  }
+  $("#detailsBody").innerHTML = summary + body + media || "لا توجد تفاصيل إضافية لهذا الخبر.";
+  $("#detailsPanel").classList.add("open");
+  $("#detailsPanel").setAttribute("aria-hidden","false");
+  document.body.classList.add("no-scroll");
+  detailsTrap = trapFocus($("#detailsPanel"));
+  $("#detailsOk").focus();
+}
+
 function closeDetails(){
   $("#detailsPanel").classList.remove("open");
   $("#detailsPanel").setAttribute("aria-hidden","true");
@@ -238,16 +262,16 @@ function updateLatest(){
 
 /* ===== رندر الصفحة الرئيسية ===== */
 function renderHome(){
-  $("#newsHome").innerHTML = DATA.news.slice(0,3).map(item => `
-    <article class="card news-card card-hover">
+  $("#newsHome").innerHTML = DATA.news.slice(0,3).map((item, index) => `
+    <article class="card news-card card-hover" data-news-index="${index}" tabindex="0" role="button" aria-label="عرض تفاصيل الخبر: ${esc(item.title)}">
       <div class="meta"><i class="fa-regular fa-calendar"></i><span>${esc(item.date)}</span></div>
       <h3>${esc(item.title)}</h3>
       <p>${esc(item.desc)}</p>
     </article>
   `).join("");
 
-  $("#newsPage").innerHTML = DATA.news.map(item => `
-    <article class="card news-card card-hover">
+  $("#newsPage").innerHTML = DATA.news.map((item, index) => `
+    <article class="card news-card card-hover" data-news-index="${index}" tabindex="0" role="button" aria-label="عرض تفاصيل الخبر: ${esc(item.title)}">
       <div class="meta"><i class="fa-regular fa-calendar"></i><span>${esc(item.date)}</span></div>
       <h3>${esc(item.title)}</h3>
       <p>${esc(item.desc)}</p>
@@ -468,6 +492,9 @@ document.addEventListener("click", e => {
     if(nav && nav.classList.contains("open")) toggleMenu(false);
   }
 
+  const newsCard = e.target.closest("[data-news-index]");
+  if(newsCard){ openNewsDetails(DATA.news[Number(newsCard.dataset.newsIndex)] || {}); return; }
+
   const targetBtn = e.target.closest("[data-target]");
   if(targetBtn && !targetBtn.closest(".search-panel")){
     e.preventDefault();
@@ -674,7 +701,7 @@ async function loadManagedSiteContent(){
     if(error) throw error;
     const grouped = {};
     (data||[]).forEach(item => (grouped[item.section] ||= []).push(item));
-    if(grouped.news?.length) DATA.news = grouped.news.map(x=>({title:x.title,date:x.item_date||"",desc:x.summary||x.body||"",url:x.media_url||""}));
+    if(grouped.news?.length) DATA.news = grouped.news.map(x=>({title:x.title,date:x.item_date||"",desc:x.summary||"",body:x.body||"",url:x.media_url||""}));
     if(grouped.books?.length) DATA.books = grouped.books.map(x=>({title:x.title,desc:x.summary||x.body||"",url:x.media_url||""}));
     if(grouped.articles?.length) DATA.articles = grouped.articles.map(x=>({title:x.title,author:x.summary||"مؤسسة العقيلة",url:x.media_url||""}));
     if(grouped.lectures?.length) DATA.lessons = grouped.lectures.map(x=>x.title);
