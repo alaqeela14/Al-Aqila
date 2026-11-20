@@ -94,9 +94,9 @@
           <div class="form-field wide"><label for="itemTitle">العنوان *</label><input id="itemTitle" required maxlength="180" placeholder="عنوان المادة"></div>
           <div class="form-field"><label for="itemSection">القسم *</label><select id="itemSection" required><option value="news">الأخبار والنشاطات</option><option value="books">مكتبة المؤسسة</option><option value="articles">المقالات والمواد</option><option value="lectures">الدروس والمحاضرات</option><option value="projects">المشاريع</option><option value="activities">الأنشطة</option><option value="series">السلاسل</option><option value="topics">الموضوعات</option></select></div>
           <div class="form-field"><label for="itemDate">التاريخ</label><input id="itemDate" type="date"></div>
-          <div class="form-field wide"><label for="itemSummary">نبذة مختصرة</label><textarea id="itemSummary" rows="3" maxlength="1200" placeholder="اكتب وصفاً موجزاً للمادة"></textarea></div>
-          <div class="form-field wide"><label for="itemBody">التفاصيل</label><textarea id="itemBody" rows="6" placeholder="النص الكامل أو التفاصيل الإضافية"></textarea></div>
-          <div class="form-field wide"><label for="itemMedia">رابط الصورة أو الملف أو الفيديو</label><input id="itemMedia" type="url" placeholder="https://..."></div>
+          <div class="form-field wide"><label id="summaryLabel" for="itemSummary">موجز الخبر</label><textarea id="itemSummary" rows="3" maxlength="1200" placeholder="اكتب موجزاً مختصراً عن الخبر"></textarea></div>
+          <div class="form-field wide"><label id="bodyLabel" for="itemBody">نص الخبر</label><textarea id="itemBody" rows="8" placeholder="اكتب نص الخبر الكامل هنا"></textarea></div>
+          <div class="form-field wide"><label id="mediaLabel" for="itemMediaFile">صورة الخبر أو الفيديو</label><input id="itemMediaFile" type="file" accept="image/*,video/mp4,video/webm"><small class="field-hint">اختر صورة أو فيديو من جهازك، وسيُرفع تلقائياً عند حفظ الخبر.</small><div id="itemMediaCurrent" class="media-current"></div><label for="itemMedia">أو أضف رابطاً مباشراً للوسائط</label><input id="itemMedia" type="url" placeholder="https://..."></div>
           <div class="form-field"><label for="itemSort">ترتيب العرض</label><input id="itemSort" type="number" value="0"></div>
           <div class="form-field check-field"><label><input id="itemPublished" type="checkbox"> نشر المادة على الموقع</label></div>
         </div>
