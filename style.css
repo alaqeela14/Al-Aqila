@@ -995,3 +995,7 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 @media(max-width:680px){
  .footer-artwork img{width:42.5%!important}
 }
+
+
+/* زيادة وضوح نصوص روابط التذييل السريعة */
+.footer-grid .footer-links a{font-size:8px!important;line-height:1.7!important}
