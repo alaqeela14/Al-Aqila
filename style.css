@@ -916,8 +916,8 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
   .header-main .header-actions button,
   .header-main .header-actions .icon-btn,
   .header-main .header-actions .theme-toggle{
-    width:21px!important;height:21px!important;min-width:21px!important;min-height:21px!important;
-    padding:0!important;border-radius:4px!important;
+    width:18px!important;height:18px!important;min-width:18px!important;min-height:18px!important;
+    padding:0!important;border-radius:3px!important;
     background:rgba(10,25,20,.88)!important;
     color:#fff!important;
     border:1px solid rgba(255,255,255,.75)!important;
