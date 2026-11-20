@@ -1059,9 +1059,9 @@ html.dark-mode .toast{background:var(--gold);color:var(--green-950)}
 .marquee:hover .marquee-track{animation-play-state:paused!important}
 @media(max-width:680px){
   .marquee{min-height:38px!important}
-  .marquee::before{width:88px;font-size:10px}
+  .marquee::before{width:60px;font-size:10px}
   .marquee-track{
-    padding:6px 100px 6px 20px!important;
+    padding:6px 72px 6px 20px!important;
     font-size:12px!important;
     line-height:1.7!important;
     animation-duration:52s!important;
