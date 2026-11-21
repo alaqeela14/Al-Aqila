@@ -8,3 +8,15 @@
 @media(max-width:560px){.auth-card{padding:25px 20px}.main-area{padding-inline:12px}.topbar{min-height:74px;margin-bottom:17px}.user-chip{font-size:0}.user-avatar{font-size:13px}.welcome-panel{padding:20px}.welcome-panel h1{font-size:20px}.welcome-panel>i{font-size:48px}.stats-grid{grid-template-columns:1fr 1fr}.stat-card:last-child{grid-column:1/-1}.stat-card strong{font-size:23px}.panel-card{padding:14px}.panel-head{align-items:flex-start;flex-direction:column}.content-toolbar{align-items:flex-start}.content-toolbar .primary-btn{padding:10px}.filter-row input{min-width:0;flex:1}.filter-row select{width:115px}.form-grid{grid-template-columns:1fr}.form-field.wide{grid-column:auto}.modal-card{padding:17px}.modal-actions>*{flex:1}}
 
 .field-hint{font-size:11px;color:var(--muted)}.media-current{display:flex;flex-direction:column;gap:4px;font-size:12px}.media-current a{color:var(--g800);font-weight:800}.media-current small{color:var(--muted)}.form-field input[type=file]{background:#f8faf7;padding:10px}
+
+/* تحسين ظهور إجراءات تعديل وحذف المحتوى على الجوال */
+@media(max-width:560px){
+  #contentView .table-wrap{overflow-x:visible}
+  #contentView table{min-width:0;table-layout:fixed;width:100%}
+  #contentView th:nth-child(2),#contentView td:nth-child(2),#contentView th:nth-child(4),#contentView td:nth-child(4){display:none}
+  #contentView th,#contentView td{padding:10px 7px}
+  #contentView th:last-child,#contentView td:last-child{width:92px}
+  #contentView .actions{display:flex;justify-content:center;gap:7px}
+  #contentView .action-btn{width:36px;height:36px;display:grid;place-items:center;flex:none}
+  #contentView td:first-child{overflow-wrap:anywhere}
+}
